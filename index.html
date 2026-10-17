@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow | Vazifalar boshqaruvi</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">✓</span>
+        <span>TaskFlow</span>
+      </div>
+
+      <div>
+        <p class="nav-label">ISH MAYDONI</p>
+        <nav class="nav">
+          <button class="nav-item active" data-filter="all">
+            <span>▦</span> Barcha vazifalar
+            <span class="nav-count" id="nav-all">0</span>
+          </button>
+          <button class="nav-item" data-filter="list">
+            <span>○</span> Rejada
+            <span class="nav-count" id="nav-list">0</span>
+          </button>
+          <button class="nav-item" data-filter="process">
+            <span>◷</span> Jarayonda
+            <span class="nav-count" id="nav-process">0</span>
+          </button>
+          <button class="nav-item" data-filter="done">
+            <span>✓</span> Bajarilgan
+            <span class="nav-count" id="nav-done">0</span>
+          </button>
+        </nav>
+      </div>
+
+      <div class="sidebar-bottom">
+        <strong>✨ Kichik qadamlar</strong>
+        <p>Har kuni bitta vazifani yakunlash ham katta natijaga olib keladi.</p>
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">BUGUNGI REJALAR</div>
+          <h1>Vazifalar paneli</h1>
+          <p class="welcome">
+            Salom! Bugun rejalaringni tartibga solamiz.
+          </p>
+        </div>
+        <div class="top-actions">
+          <span id="today-date" class="today"></span>
+          <div class="avatar">TF</div>
+        </div>
+      </header>
+
+      <section class="stats">
+        <article class="stat purple">
+          <div class="stat-top">
+            <span>Jami vazifalar</span><span class="stat-icon">▦</span>
+          </div>
+          <div class="stat-number" id="stat-total">0</div>
+          <div class="stat-note">Barcha rejalaring</div>
+        </article>
+
+        <article class="stat blue">
+          <div class="stat-top">
+            <span>Rejada</span><span class="stat-icon">○</span>
+          </div>
+          <div class="stat-number" id="stat-list">0</div>
+          <div class="stat-note">Boshlashga tayyor</div>
+        </article>
+
+        <article class="stat orange">
+          <div class="stat-top">
+            <span>Jarayonda</span><span class="stat-icon">◷</span>
+          </div>
+          <div class="stat-number" id="stat-process">0</div>
+          <div class="stat-note">Hozir bajarilmoqda</div>
+        </article>
+
+        <article class="stat green">
+          <div class="stat-top">
+            <span>Bajarilgan</span><span class="stat-icon">✓</span>
+          </div>
+          <div class="stat-number" id="stat-done">0</div>
+          <div class="stat-note" id="completion-note">Yaxshi ketayapsan!</div>
+        </article>
+      </section>
+
+      <section>
+        <div class="section-heading">
+          <div>
+            <h2 id="board-title">Vazifalarim</h2>
+            <p>Vazifalarni qo‘shing va jarayonni kuzatib boring.</p>
+          </div>
+        </div>
+
+        <form class="add-form" id="taskForm">
+          <input
+            id="taskInput"
+            type="text"
+            maxlength="180"
+            placeholder="Yangi vazifa yozing..."
+            autocomplete="off"
+            required
+          >
+          <button class="primary-btn" type="submit">
+            + Qo‘shish
+          </button>
+        </form>
+
+        <div class="board" id="board">
+          <section class="column">
+            <div class="column-head">
+              <span class="dot blue-dot"></span>
+              <span class="column-title">REJADA</span>
+              <span class="column-count" id="count-list">0</span>
+            </div>
+            <div class="task-list" id="list"></div>
+          </section>
+
+          <section class="column">
+            <div class="column-head">
+              <span class="dot orange-dot"></span>
+              <span class="column-title">JARAYONDA</span>
+              <span class="column-count" id="count-process">0</span>
+            </div>
+            <div class="task-list" id="process"></div>
+          </section>
+
+          <section class="column">
+            <div class="column-head">
+              <span class="dot green-dot"></span>
+              <span class="column-title">BAJARILDI</span>
+              <span class="column-count" id="count-done">0</span>
+            </div>
+            <div class="task-list" id="done"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>
